@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+                  xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/"
+                  xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+                  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+                  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LogService" targetNamespace="http://tempuri.org/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8068/LogService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8068/LogService.svc?xsd=xsd1"
+                  namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8068/LogService.svc?xsd=xsd2"
+                  namespace="http://schemas.datacontract.org/2004/07/LogAgent" />
+      <xsd:import schemaLocation="http://localhost:8068/LogService.svc?xsd=xsd3"
+                  namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8068/LogService.svc?xsd=xsd4" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILogService_insertLogRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertLogRecord" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_insertLogRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertLogRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_selectLogRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:selectLogRecord" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_selectLogRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:selectLogRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_deleteLogRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteLogRecord" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_deleteLogRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteLogRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_registerLogType_InputMessage">
+    <wsdl:part name="parameters" element="tns:registerLogType" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_registerLogType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registerLogTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_getLogTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLogTypes" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_getLogTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLogTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_deleteLogType_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteLogType" />
+  </wsdl:message>
+  <wsdl:message name="ILogService_deleteLogType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteLogTypeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILogService">
+    <wsdl:operation name="insertLogRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogService/insertLogRecord"
+                  message="tns:ILogService_insertLogRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogService/insertLogRecordResponse"
+                   message="tns:ILogService_insertLogRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="selectLogRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogService/selectLogRecord"
+                  message="tns:ILogService_selectLogRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogService/selectLogRecordResponse"
+                   message="tns:ILogService_selectLogRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteLogRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogService/deleteLogRecord"
+                  message="tns:ILogService_deleteLogRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogService/deleteLogRecordResponse"
+                   message="tns:ILogService_deleteLogRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="registerLogType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogService/registerLogType"
+                  message="tns:ILogService_registerLogType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogService/registerLogTypeResponse"
+                   message="tns:ILogService_registerLogType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLogTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogService/getLogTypes"
+                  message="tns:ILogService_getLogTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogService/getLogTypesResponse"
+                   message="tns:ILogService_getLogTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteLogType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogService/deleteLogType"
+                  message="tns:ILogService_deleteLogType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogService/deleteLogTypeResponse"
+                   message="tns:ILogService_deleteLogType_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILogService" type="tns:ILogService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insertLogRecord">
+      <soap:operation soapAction="http://tempuri.org/ILogService/insertLogRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectLogRecord">
+      <soap:operation soapAction="http://tempuri.org/ILogService/selectLogRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteLogRecord">
+      <soap:operation soapAction="http://tempuri.org/ILogService/deleteLogRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerLogType">
+      <soap:operation soapAction="http://tempuri.org/ILogService/registerLogType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLogTypes">
+      <soap:operation soapAction="http://tempuri.org/ILogService/getLogTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteLogType">
+      <soap:operation soapAction="http://tempuri.org/ILogService/deleteLogType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LogService">
+    <wsdl:port name="BasicHttpBinding_ILogService" binding="tns:BasicHttpBinding_ILogService">
+      <soap:address location="http://localhost:8068/LogService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
